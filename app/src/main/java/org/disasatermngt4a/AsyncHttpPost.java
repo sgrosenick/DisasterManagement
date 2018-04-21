@@ -78,6 +78,13 @@ public class AsyncHttpPost extends AsyncTask<String, Void, JSONArray> {
         if (mData.get("tab_id").equalsIgnoreCase("1")) {
             onQueryReportExecute(Result);
         }
+        if (mData.get("tab_id").equalsIgnoreCase("0")) {
+            HashMap<String, String> data = new HashMap<String, String>();
+            data.put("tab_id", "1");
+            //setUpClusterer();
+            AsyncHttpPost asyncHttpPost = new AsyncHttpPost(data, mMap, mClusterManager);
+            asyncHttpPost.execute("http://10.0.2.2:8081/WebProject/HTTPServlet");
+        }
     }
 
     private void onQueryReportExecute(JSONArray Result) {
@@ -137,4 +144,46 @@ public class AsyncHttpPost extends AsyncTask<String, Void, JSONArray> {
             mMap.moveCamera(cu);
         }
     }
+
+  /*  private void onCreateReportExecute(JSONArray Result) {
+        LatLngBounds.Builder builder = new LatLngBounds.Builder();
+
+        for (int i = 0; i < Result.length(); i++) {
+            try {
+                JSONObject report = Result.getJSONObject(i);
+
+                String reportType = report.getString("report_type");
+                String disasterType = report.getString("disaster_type");
+                Double latitude = Double.parseDouble(report.getString("latitude"));
+                Double longitude = Double.parseDouble(report.getString("longitude"));
+
+                if (reportType.equals("donation")) {
+                    String resourceType = report.getString("resource_type");
+                    String message = "Resource Donation: " + resourceType;
+
+                    ReportClusterItem rci = new ReportClusterItem(latitude, longitude, disasterType, message, ReportTypeEnum.Donation);
+                    mClusterManager.addItem(rci);
+                }
+
+                if (reportType.equals("request")) {
+                    String resourceType = report.getString("resource_type");
+                    String message = "Resource Request: " + resourceType;
+
+                    ReportClusterItem rci = new ReportClusterItem(latitude, longitude, disasterType, message, ReportTypeEnum.Request);
+                    mClusterManager.addItem(rci);
+                }
+
+                if (reportType.equals("damage")) {
+                    String damageType = report.getString("damage_type");
+                    String message = "Reported Damage: " + damageType;
+
+                    ReportClusterItem rci = new ReportClusterItem(latitude, longitude, disasterType, message, ReportTypeEnum.Damage);
+                    mClusterManager.addItem(rci);
+                }
+
+            } catch (JSONException e) {
+                android.util.Log.v("INFO", e.toString());
+            }
+        }
+    }*/
 }

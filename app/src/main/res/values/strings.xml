@@ -1,4 +1,43 @@
 <resources>
     <string name="app_name">DisasaterMngt4a</string>
+    <string name="report_filter">Report Filter</string>
     <string name="title_activity_main">Disaster Management</string>
+    <string name="disaster_query_label">Disaster Type: </string>
+    <string name="report_type_query_label">Report Type: </string>
+    <string name="submit_button">Submit Query</string>
+    <string name="create_report">Create Report</string>
+
+    <string-array name="disaster_type_spinner">
+        <item>--Select Disaster Type--</item>
+        <item>flood</item>
+        <item>wildfire</item>
+        <item>earthquake</item>
+        <item>tornado</item>
+        <item>hurricane</item>
+        <item>other</item>
+    </string-array>
+    <string-array name="report_type_spinner">
+        <item>--Select Report Type--</item>
+        <item>request</item>
+        <item>donation</item>
+        <item>damage</item>
+    </string-array>
+    <string-array name="resource_type_spinner">
+        <item>--Select Resource Type</item>
+        <item>water</item>
+        <item>food</item>
+        <item>money</item>
+        <item>medicine</item>
+        <item>cloth</item>
+        <item>rescue/volunteer</item>
+    </string-array>
+    <string-array name="damage_type_spinner">
+        <item>--Select Damage Type</item>
+        <item>pollution</item>
+        <item>building damage</item>
+        <item>road damage</item>
+        <item>casualty</item>
+        <item>other</item>
+    </string-array>
+
 </resources>
